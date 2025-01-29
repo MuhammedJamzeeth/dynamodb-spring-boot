@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: main
+
+com:
+  dynamodb:
+    main:
+      open-api:
+        enabled: true
+        api-version: 1.0.0
+        title: Main
+        description: User Traits API
+      dynamodb:
+        endpoint: http://localhost:8000
+        region: us-west-2
+        access-key: x
+        secret-key: x
+        table-prefix: test
+
+
+execution:
+  mode: local
