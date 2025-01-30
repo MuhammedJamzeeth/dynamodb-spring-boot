@@ -1,8 +1,8 @@
 package com.dynamodb.main.controller;
 
 import com.dynamodb.main.dto.ExceptionResponseDto;
-import com.dynamodb.main.model.UserTrait;
-import com.dynamodb.main.service.UserTraitService;
+import com.dynamodb.main.model.UserTraits;
+import com.dynamodb.main.repository.UserTraitsRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -14,7 +14,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,7 +21,7 @@ import java.util.List;
 @Tag(name = "User traits", description = "Endpoints for managing user traits.")
 public class UserTraitController {
 
-    private final UserTraitService userTraitService;
+    private final UserTraitsRepository userTraitsRepository;
 
     @GetMapping(value = "/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Get UserTraits Details", description = "Retrieves details of user traits by user id")
@@ -32,7 +31,7 @@ public class UserTraitController {
                     content = @Content(schema = @Schema(implementation = ExceptionResponseDto.class))
             )
     })
-    public ResponseEntity<List<UserTrait>> getUserByUserId(@PathVariable String userId) {
-        return ResponseEntity.ok(userTraitService.getUserTraitsByUserId(userId));
+    public ResponseEntity<UserTraits> getUserByUserId(@PathVariable String userId) {
+        return ResponseEntity.ok(userTraitsRepository.getUserTraitsByUserId(userId));
     }
 }

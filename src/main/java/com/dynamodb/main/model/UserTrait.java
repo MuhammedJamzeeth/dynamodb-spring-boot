@@ -7,6 +7,7 @@ import lombok.*;
 @Setter
 @RequiredArgsConstructor
 @DynamoDBTable(tableName = "-dp-user-traits-store")
+
 public class UserTrait {
 
     @DynamoDBHashKey
@@ -18,4 +19,7 @@ public class UserTrait {
 
     @DynamoDBAttribute
     private String traitValue;
+
+    @DynamoDBAttribute
+    private String organizationId;
 }

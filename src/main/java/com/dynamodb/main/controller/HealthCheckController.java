@@ -3,7 +3,7 @@ package com.dynamodb.main.controller;
 
 import com.dynamodb.main.exception.HealthFailedException;
 import com.dynamodb.main.dto.HealthResponseDto;
-import com.dynamodb.main.service.DynamoDBHealthService;
+import com.dynamodb.main.repository.DynamoDBHealthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

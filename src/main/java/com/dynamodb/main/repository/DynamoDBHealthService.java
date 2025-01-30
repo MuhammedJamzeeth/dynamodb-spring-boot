@@ -1,4 +1,4 @@
-package com.dynamodb.main.service;
+package com.dynamodb.main.repository;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsync;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
@@ -37,7 +37,7 @@ public class DynamoDBHealthService {
     // request to self to check the service health
 
     // check the dynamoDB health
-    private HealthStatus isDynamoDBOk() {
+    HealthStatus isDynamoDBOk() {
         HealthStatus healthStatus = new HealthStatus();
         String tableName = dynamoDBMapper.generateCreateTableRequest(UserTrait.class).getTableName();
         try {
