@@ -9,8 +9,17 @@ Step 1: Download Maven Dependencies
 
 Step 2: Configure DynamoDB
 ---------------------------
+Before you can access DynamoDB programmatically or through the AWS Command Line Interface (AWS CLI), you must configure your credentials to enable authorization for your applications. Downloadable DynamoDB requires any credentials to work, as shown in the following example.
 Ensure that DynamoDB is running on port 8000. If DynamoDB is not running or is running on a different port, the application will throw an error.
 if you use docker to run dynamodb, you can use the following command to start dynamodb
+
+```bash
+  aws configure
+  AWS Access Key ID: "fakeMyKeyId" 
+  AWS Secret Access Key: "fakeSecretAccessKey"
+  Default Region Name: "fakeRegion"
+ ```
+
 ```bash
   docker run -d -p 8000:8000 amazon/dynamodb-local
 ```
